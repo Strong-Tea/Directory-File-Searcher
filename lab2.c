@@ -46,9 +46,9 @@ void _readdir(const char* pathDir) {
 int main(int argc, char **argv) {
 
     if(argc < 5){
-	    fprintf(stderr, "%s: ERROR:not enough arguments\n", basename(argv[0]));
-	    return -1;
-	}
+	fprintf(stderr, "%s: ERROR:not enough arguments\n", basename(argv[0]));
+	return -1;
+    }
 
     char *programName = basename(argv[0]);
     char *path = argv[1];
@@ -58,13 +58,13 @@ int main(int argc, char **argv) {
 
     if (min > max) {
         fprintf(stderr, "%s: ERROR:min is greater than max\n", basename(argv[0]));
-		return -1;
+	return -1;
     }
 
     outFile = fopen(destFile, "w");
     if (outFile == NULL) {
         fprintf(stderr,"%s: %s\n", destFile, strerror(errno)); 
-		return -1;
+	return -1;
     }
 
     char* fullPath = realpath(path, NULL);
